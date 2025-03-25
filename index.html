@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Formular Contact Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .contact-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .contact-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+            position: relative;
+        }
+        .contact-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #667eea;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        .form-input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .btn-submit {
+            background: #667eea;
+            color: white;
+        }
+        .btn-submit:hover {
+            background: #5a4fcf;
+        }
+        .btn-reset {
+            background: #ff6b6b;
+            color: white;
+        }
+        .btn-reset:hover {
+            background: #ee5253;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h2 class="contact-title">Contact</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <input type="text" id="name" 
+                       class="form-input" 
+                       placeholder="Nume Complet" 
+                       required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" 
+                       class="form-input" 
+                       placeholder="Adresă Email" 
+                       required>
+            </div>
+            <div class="form-group">
+                <textarea id="message" 
+                          class="form-input" 
+                          placeholder="Mesajul Dvs." 
+                          rows="5" 
+                          required></textarea>
+            </div>
+            <div class="btn-container">
+                <button type="submit" class="btn btn-submit">Trimite</button>
+                <button type="reset" class="btn btn-reset">Resetează</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('reset', function(e) {
+            alert('Formularul a fost resetat!');
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mesaj trimis! Vă mulțumim pentru contact.');
+        });
+    </script>
+</body>
+</html>
